@@ -27,7 +27,7 @@ class Tree {
    * Traverses Tree instance and its child nodes, outputting as a list.
    *
    * @param TreeNode $node
-   * @param \welly\PHPAlgorithms\Tree\int $level
+   * @param int $level
    */
   public function traverse(TreeNode $node, int $level = 0) {
     if ($node) {
