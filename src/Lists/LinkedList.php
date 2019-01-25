@@ -7,12 +7,12 @@ class LinkedList {
   /**
    * @var null Contains first ListNode object.
    */
-	private $first = NULL;
+	protected $first = NULL;
 
   /**
    * @var int Total count of ListNodes in LinkedList instance.
    */
-	private $total = 0;
+  protected $total = 0;
 
   /**
    * Inserts new ListNode into LinkedList instance.
@@ -35,6 +35,7 @@ class LinkedList {
       $current->next = $new;
     }
     $this->total++;
+
     return TRUE;
   }
 
@@ -44,9 +45,18 @@ class LinkedList {
   public function show() {
 	  $current = $this->first;
 	  while ($current !== NULL) {
-	    echo $current->data . "->";
+	    echo $current->data . "\n";
 	    $current = $current->next;
     }
+  }
+
+  /**
+   * Getter method for total member variable.
+   *
+   * @return int
+   */
+  public function getTotal() {
+    return $this->total;
   }
 
 }
