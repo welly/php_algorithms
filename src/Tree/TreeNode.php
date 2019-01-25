@@ -31,7 +31,7 @@ class TreeNode {
   /**
    * Adds a child node to the current TreeNode instance.
    *
-   * @param \welly\PHPAlgorithms\Tree\TreeNode $node
+   * @param TreeNode $node
    */
   public function addChild(TreeNode $node) {
     $this->children[] = $node;
