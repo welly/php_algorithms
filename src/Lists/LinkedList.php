@@ -2,6 +2,11 @@
 
 namespace welly\PHPAlgorithms\Lists;
 
+/**
+ * Class LinkedList
+ *
+ * @package welly\PHPAlgorithms\Lists
+ */
 class LinkedList {
 
   /**
@@ -51,7 +56,7 @@ class LinkedList {
   }
 
   /**
-   * Getter method for total member variable.
+   * Getter method for $total member variable.
    *
    * @return int
    */

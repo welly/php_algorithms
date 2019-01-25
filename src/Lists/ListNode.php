@@ -2,6 +2,11 @@
 
 namespace welly\PHPAlgorithms\Lists;
 
+/**
+ * Class ListNode
+ *
+ * @package welly\PHPAlgorithms\Lists
+ */
 class ListNode {
 
   /**

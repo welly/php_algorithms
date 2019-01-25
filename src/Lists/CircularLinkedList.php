@@ -1,15 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: amoore
- * Date: 25/01/2019
- * Time: 14:39
- */
-
 namespace welly\PHPAlgorithms\Lists;
 
+/**
+ * Class CircularLinkedList
+ *
+ * @package welly\PHPAlgorithms\Lists
+ */
 class CircularLinkedList extends LinkedList {
 
+  /**
+   * Inserts new ListNode into CircularLinkedList instance.
+   *
+   * @param null $data
+   *
+   * @return bool
+   */
   public function insert($data = NULL) {
     $new = new ListNode($data);
     $new->next = $this->first;
