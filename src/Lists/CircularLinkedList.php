@@ -19,12 +19,14 @@ class CircularLinkedList extends LinkedList {
     }
     else {
       $current = $this->first;
-      while ($current->next !== NULL) {
+      while ($current->next !== $this->first) {
         $current = $current->next;
       }
       $current->next = $new;
     }
+    $new->next = $this->first;
     $this->total++;
+    return TRUE;
   }
 
 }
