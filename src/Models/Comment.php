@@ -1,6 +1,6 @@
 <?php
 
-namespace welly\PHPAlgorithms\Helpers;
+namespace welly\PHPAlgorithms\Models;
 
 /**
  * Class Comment

@@ -3,7 +3,7 @@
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use welly\PHPAlgorithms\Factory\CommentFactory;
-use welly\PHPAlgorithms\Helpers\Comment;
+use welly\PHPAlgorithms\Models\Comment;
 use welly\PHPAlgorithms\Repository\CommentRepository;
 use welly\PHPAlgorithms\Utils\InMemoryPersistence;
 

@@ -2,7 +2,7 @@
 
 namespace welly\PHPAlgorithms\Factory;
 
-use welly\PHPAlgorithms\Helpers\Comment;
+use welly\PHPAlgorithms\Models\Comment;
 
 class CommentFactory implements FactoryInterface {
 

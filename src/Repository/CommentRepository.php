@@ -3,7 +3,7 @@
 namespace welly\PHPAlgorithms\Repository;
 
 use welly\PHPAlgorithms\Factory\CommentFactory;
-use welly\PHPAlgorithms\Helpers\Comment;
+use welly\PHPAlgorithms\Models\Comment;
 use welly\PHPAlgorithms\Utils\InMemoryPersistence;
 use welly\PHPAlgorithms\Utils\PersistenceInterface;
 
