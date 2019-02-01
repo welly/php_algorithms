@@ -1,6 +1,6 @@
 <?php
 
-use welly\PHPAlgorithms\Repository\Comment;
+use welly\PHPAlgorithms\Helpers\Comment;
 
 class RepositoryTest extends \PHPUnit\Framework\TestCase {
 
