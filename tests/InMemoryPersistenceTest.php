@@ -8,7 +8,7 @@ class InMemoryPersistenceTest extends TestCase {
   /**
    * Testing InMemoryPersistence class to see if it can store and retrieve data.
    */
-  function testItCanPersistAndRetrieveASingleDataArray() {
+  function testStoreAndRetrieveData() {
     $data = array('data');
 
     $persistence = new InMemoryPersistence();
@@ -21,7 +21,7 @@ class InMemoryPersistenceTest extends TestCase {
    * Testing InMemoryPersistence class to see if it can store/retrieve multiple
    * data values.
    */
-  function testItCanPerisistSeveralElementsAndRetrieveAnyOfThem() {
+  function testMultipleStoreAndRetrieveData() {
     $data1 = array('data1');
     $data2 = array('data2');
 

@@ -5,7 +5,7 @@ use welly\PHPAlgorithms\Factory\CommentFactory;
 
 class CommentFactoryTest extends TestCase {
 
-  function testACommentIsComplete() {
+  function testValidComment() {
     $postId = 1;
     $commentAuthor = "Joe";
     $commentAuthorEmail = "joe@example.com";
