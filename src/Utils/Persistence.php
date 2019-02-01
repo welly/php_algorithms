@@ -1,6 +1,6 @@
 <?php
 
-namespace welly\PHPAlgorithms\Repository;
+namespace welly\PHPAlgorithms\Utils;
 
 /**
  * Interface Persistence

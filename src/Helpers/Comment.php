@@ -1,11 +1,11 @@
 <?php
 
-namespace welly\PHPAlgorithms\Repository;
+namespace welly\PHPAlgorithms\Helpers;
 
 /**
  * Class Comment
  *
- * @package welly\PHPAlgorithms\Factory
+ * @package welly\PHPAlgorithms\Helpers
  */
 class Comment {
 

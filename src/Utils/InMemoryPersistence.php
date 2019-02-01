@@ -1,7 +1,12 @@
 <?php
 
-namespace welly\PHPAlgorithms\Repository;
+namespace welly\PHPAlgorithms\Utils;
 
+/**
+ * Class InMemoryPersistence
+ *
+ * @package welly\PHPAlgorithms\Utils
+ */
 class InMemoryPersistence implements Persistence {
 
   private $data = [];
@@ -10,13 +15,14 @@ class InMemoryPersistence implements Persistence {
    * {@inheritdoc}
    */
   function persist($data) {
-    $this->data = $data;
+    $this->data[] = $data;
   }
 
   /**
    * {@inheritdoc}
    */
   function retrieve($id) {
-    return $this->data;
+    return $this->data[$id];
   }
+
 }
