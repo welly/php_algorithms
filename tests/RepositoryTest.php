@@ -1,8 +1,15 @@
 <?php
 
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use PHPUnit\Framework\TestCase;
+use welly\PHPAlgorithms\Factory\CommentFactory;
 use welly\PHPAlgorithms\Helpers\Comment;
+use welly\PHPAlgorithms\Repository\CommentRepository;
+use welly\PHPAlgorithms\Utils\InMemoryPersistence;
 
-class RepositoryTest extends \PHPUnit\Framework\TestCase {
+class RepositoryTest extends TestCase {
+
+  use MockeryPHPUnitIntegration;
 
 	function testACommentHasAllItsComposingParts() {
 		$postId = 1;
@@ -19,4 +26,33 @@ class RepositoryTest extends \PHPUnit\Framework\TestCase {
     $this->assertEquals($commentBody, $comment->getBody());
 
 	}
+
+  function testAPersistedCommentCanBeRetrievedFromTheGateway() {
+
+    $persistanceGateway = new InMemoryPersistence();
+    $commentRepository = new CommentRepository($persistanceGateway);
+
+    $commentData = array(1, 'x', 'x', 'x', 'x');
+    $comment = (new CommentFactory())->make($commentData);
+
+    $commentRepository->add($comment);
+
+    $this->assertEquals($commentData, $persistanceGateway->retrieve(0));
+  }
+
+  function testItCallsThePersistenceWhenAddingAComment() {
+
+    $mock = \Mockery::mock('welly\PHPAlgorithms\Utils\PersistenceInterface');
+    $commentRepository = new CommentRepository($mock);
+
+    $commentData = array(1, 'x', 'x', 'x', 'x');
+    $comment = (new CommentFactory())->make($commentData);
+
+    $mock->shouldReceive('persist')
+      ->once()
+      ->with($commentData);
+
+    $commentRepository->add($comment);
+  }
+
 }
