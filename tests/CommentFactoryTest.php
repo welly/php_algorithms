@@ -1,8 +1,9 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
 use welly\PHPAlgorithms\Factory\CommentFactory;
 
-class CommentFactoryTest extends \PHPUnit\Framework\TestCase {
+class CommentFactoryTest extends TestCase {
 
   function testACommentIsComplete() {
     $postId = 1;

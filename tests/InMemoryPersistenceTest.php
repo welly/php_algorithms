@@ -1,8 +1,9 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
 use welly\PHPAlgorithms\Utils\InMemoryPersistence;
 
-class InMemoryPersistenceTest extends PHPUnit\Framework\TestCase {
+class InMemoryPersistenceTest extends TestCase {
 
   /**
    * Testing InMemoryPersistence class to see if it can store and retrieve data.
