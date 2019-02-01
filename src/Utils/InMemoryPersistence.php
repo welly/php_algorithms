@@ -25,4 +25,7 @@ class InMemoryPersistence implements PersistenceInterface {
     return $this->data[$id];
   }
 
+  function retrieveAll() {
+    return $this->data;
+  }
 }

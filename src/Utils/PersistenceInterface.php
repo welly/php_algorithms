@@ -21,12 +21,19 @@ interface PersistenceInterface {
   function persist($data);
 
   /**
-   * Gets data from persistence implementation data store.
+   * Gets single data item from persistence implementation data store.
    *
    * @param $id
    *
    * @return array
    */
   function retrieve($id);
+
+  /**
+   * Gets all data from persistence implementation data store.
+   *
+   * @return array
+   */
+  function retrieveAll();
 
 }
