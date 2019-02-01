@@ -7,7 +7,7 @@ namespace welly\PHPAlgorithms\Utils;
  *
  * @package welly\PHPAlgorithms\Utils
  */
-class InMemoryPersistence implements Persistence {
+class InMemoryPersistence implements PersistenceInterface {
 
   private $data = [];
 

@@ -9,7 +9,7 @@ namespace welly\PHPAlgorithms\Utils;
  *
  * @package welly\PHPAlgorithms\Repository
  */
-interface Persistence {
+interface PersistenceInterface {
 
   /**
    * Stores data in persistence implementation data store.
