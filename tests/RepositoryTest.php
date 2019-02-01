@@ -11,7 +11,11 @@ class RepositoryTest extends TestCase {
 
   use MockeryPHPUnitIntegration;
 
-	function testACommentHasAllItsComposingParts() {
+  protected function tearDown() {
+    \Mockery::close();
+  }
+
+	public function testACommentHasAllItsComposingParts() {
 		$postId = 1;
 		$commentAuthor = "Joe";
 		$commentAuthorEmail = "joe@example.com";
@@ -27,7 +31,7 @@ class RepositoryTest extends TestCase {
 
 	}
 
-  function testAPersistedCommentCanBeRetrievedFromTheGateway() {
+  public function testRetrieveCommentFromGateway() {
 
     $persistanceGateway = new InMemoryPersistence();
     $commentRepository = new CommentRepository($persistanceGateway);
@@ -40,7 +44,7 @@ class RepositoryTest extends TestCase {
     $this->assertEquals($commentData, $persistanceGateway->retrieve(0));
   }
 
-  function testItCallsThePersistenceWhenAddingAComment() {
+  public function testCommentStoresInPersistence() {
 
     $mock = \Mockery::mock('welly\PHPAlgorithms\Utils\PersistenceInterface');
     $commentRepository = new CommentRepository($mock);
@@ -55,4 +59,50 @@ class RepositoryTest extends TestCase {
     $commentRepository->add($comment);
   }
 
+  public function testStoreAndRetrieveMultipleComments() {
+ 
+    $persistanceGateway = \Mockery::mock('welly\PHPAlgorithms\Utils\PersistenceInterface');
+    $commentRepository = new CommentRepository($persistanceGateway);
+ 
+    $commentData1 = array(1, 'x', 'x', 'x', 'x');
+    $comment1 = (new CommentFactory())->make($commentData1);
+    $commentData2 = array(2, 'y', 'y', 'y', 'y');
+    $comment2 = (new CommentFactory())->make($commentData2);
+ 
+    $persistanceGateway->shouldReceive('persist')->once()->with($commentData1);
+    $persistanceGateway->shouldReceive('persist')->once()->with($commentData2);
+ 
+    $commentRepository->add(array($comment1, $comment2));
+  }
+
+  public function testRetrieveAllComments() {
+    $repository = new CommentRepository();
+ 
+    $commentData1 = array(1, 'x', 'x', 'x', 'x');
+    $comment1 = (new CommentFactory())->make($commentData1);
+    $commentData2 = array(2, 'y', 'y', 'y', 'y');
+    $comment2 = (new CommentFactory())->make($commentData2);
+ 
+    $repository->add($comment1);
+    $repository->add($comment2);
+ 
+    $this->assertEquals(array($comment1, $comment2), $repository->getAll());
+  }
+
+  public function testRetrieveCommentById() {
+    $repository = new CommentRepository();
+
+    $commentData1 = array(1, 'x', 'x', 'x', 'x');
+    $comment1 = (new CommentFactory())->make($commentData1);
+    $commentData2 = array(1, 'y', 'y', 'y', 'y');
+    $comment2 = (new CommentFactory())->make($commentData2);
+    $commentData3 = array(3, 'y', 'y', 'y', 'y');
+    $comment3 = (new CommentFactory())->make($commentData3);
+
+    $repository->add(array($comment1, $comment2));
+    $repository->add($comment3);
+
+    $this->assertEquals(array($comment1, $comment2), $repository->get(1));
+    $this->assertEquals(array($comment3), $repository->get(3));
+  }
 }
