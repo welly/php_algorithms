@@ -3,3 +3,5 @@
 
 composer.lock
 index.php
+docs
+.DS_Store
